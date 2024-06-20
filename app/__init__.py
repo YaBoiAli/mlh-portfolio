@@ -35,3 +35,12 @@ def index():
 def hobbies():
     return render_template('hobbies.html', title="Hobbies", url=os.getenv("URL"), menu=active_menu(nav_menu, '/hobbies'))
 
+
+@app.route('/experience')
+def hobbies():
+    return render_template('experience.html', title="Hobbies", url=os.getenv("URL"), menu=active_menu(nav_menu, '/experience'))
+
+
+@app.route('/education')
+def hobbies():
+    return render_template('experience.html', title="Hobbies", url=os.getenv("URL"), menu=active_menu(nav_menu, '/education'))
