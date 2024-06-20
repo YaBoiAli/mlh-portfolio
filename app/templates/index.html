@@ -29,7 +29,6 @@
                     <img src="./static/img/logo.svg" />
                 </div>
             </a>
-            <a href="/hobbies">Hobbies</a>
         </div>
     </header>
     <div class="profile">
@@ -37,9 +36,18 @@
             <img src="./static/img/logo.jpg">
         </div>
         <h1>Adam G. Emerson</h1>
+         <ul class="menu">
+            {% for item in menu %}
+                {% if item.active %}
+                    <li class="menu-item active"><a href={{ item.url }}>{{ item.name }}</a></li>
+                {% else %}
+                    <li class="menu-item"><a href={{ item.url }}>{{ item.name }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
     </div>
     <div class="page-content">
-        {% block content %}{% endblock %}
+        {% block content %}Home{% endblock %}
     </div>
 </body>
 </html>
