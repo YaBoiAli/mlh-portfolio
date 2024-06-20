@@ -37,10 +37,10 @@ def hobbies():
 
 
 @app.route('/experience')
-def hobbies():
-    return render_template('experience.html', title="Hobbies", url=os.getenv("URL"), menu=active_menu(nav_menu, '/experience'))
+def experience():
+    return render_template('experience.html', title="Experience", url=os.getenv("URL"), menu=active_menu(nav_menu, '/experience'))
 
 
 @app.route('/education')
-def hobbies():
-    return render_template('experience.html', title="Hobbies", url=os.getenv("URL"), menu=active_menu(nav_menu, '/education'))
+def education():
+    return render_template('education.html', title="Education", url=os.getenv("URL"), menu=active_menu(nav_menu, '/education'))
