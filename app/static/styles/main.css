@@ -114,6 +114,7 @@ body {
     text-decoration: none;
     font-weight: bold;
     transition: all 0.25s;
+    border-radius: 10px;
 }
 
 .menu-item a {
