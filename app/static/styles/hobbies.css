@@ -1,0 +1,42 @@
+/* CSS for Hobbies Section */
+.hobby-category {
+    margin-bottom: 30px;
+}
+
+.hobby-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.hobby {
+    width: calc(33.33% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.hobby-image {
+    width: 100%; 
+    border-radius: 8px;
+    display: block;
+}
+
+.hobby-details {
+    padding: 10px;
+}
+
+.hobby-details strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.hobby-details p {
+    margin: 0;
+    font-size: 14px;
+    color: #666;
+}

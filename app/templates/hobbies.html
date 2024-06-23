@@ -3,5 +3,28 @@
 {% block title %}Hobbies{% endblock %}
 
 {% block content %}
-    <h1>Hobbies</h1>
+<div class="page-content"></div>
+<section class="about-me">
+    <h2>Hobbies</h2>
+    <p>When I'm not working as a software engineer, I enjoy a variety of hobbies that help me unwind and keep my creativity flowing.</p>
+    
+    {% for category, hobbies in hobbies.items() %}
+    <div class="hobby-category">
+        <h3>{{ category }}</h3>
+        <div class="hobby-list">
+            {% for hobby in hobbies %}
+            <div class="hobby">
+                <img src="{{ hobby.image }}" alt="{{ hobby.name }}" class="hobby-image">
+                <div class="hobby-details">
+                    <strong>{{ hobby.name }}</strong>
+                    <p>{{ hobby.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+    
+</section>
+</div>
 {% endblock %}
