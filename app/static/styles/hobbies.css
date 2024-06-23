@@ -6,8 +6,7 @@
 .hobby-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
+    gap: 10px;
 }
 
 .hobby {
@@ -20,8 +19,8 @@
 }
 
 .hobby-image {
-    width: 100%; 
-    border-radius: 8px;
+    width: 80%; 
+    border-radius: 10px;
     display: block;
 }
 

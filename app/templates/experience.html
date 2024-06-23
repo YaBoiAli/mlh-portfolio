@@ -2,6 +2,23 @@
 
 {% block title %}Experience{% endblock %}
 
+{% block header %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/experience.css') }}">
+{% endblock %}
+
 {% block content %}
-    <h1>Experience</h1>
+<div class="page-content">
+    <section class="experience">
+        <h2>Experience</h2>
+        {% for job in experience %}
+        <div class="job">
+            <h3>{{ job.title }}</h3>
+            <h4>{{ job.company }}</h4>
+            <p class="job-details">{{ job.location }} ({{ job.dates }})</p>
+            <p>{{ job.description }}</p>
+        </div>
+        {% endfor %}
+    </section>
+</div>
 {% endblock %}

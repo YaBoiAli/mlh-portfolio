@@ -2,6 +2,23 @@
 
 {% block title %}Education{% endblock %}
 
+{% block header %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/education.css') }}">
+{% endblock %}
+
 {% block content %}
-    <h1>Education</h1>
+<div class="page-content">
+    <section class="education">
+        <h2>Education</h2>
+        {% for school in education %}
+        <div class="school">
+            <h3>{{ school.degree }}</h3>
+            <h4>{{ school.institution }}</h4>
+            <p class="school-details">{{ school.location }} ({{ school.dates }})</p>
+            <p>{{ school.description }}</p>
+        </div>
+        {% endfor %}
+    </section>
+</div>
 {% endblock %}

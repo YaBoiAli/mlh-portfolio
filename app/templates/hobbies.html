@@ -2,6 +2,11 @@
 
 {% block title %}Hobbies{% endblock %}
 
+{% block header %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/hobbies.css') }}">
+{% endblock %}
+
 {% block content %}
 <div class="page-content"></div>
 <section class="about-me">

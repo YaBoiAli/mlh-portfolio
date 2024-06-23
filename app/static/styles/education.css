@@ -1,0 +1,46 @@
+/* CSS for Education Section */
+.education {
+    margin: auto; /* Center the entire section horizontally */
+    max-width: 800px; /* Adjust max-width as needed */
+    padding: 20px; /* Add padding for spacing */
+}
+
+.school {
+    width: 100%; /* Ensures schools take full width within the education section */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.school h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #1d539f;
+}
+
+.school h4 {
+    font-size: 18px;
+    color: #333;
+}
+
+.school .school-details {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.school p {
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Responsive Layout for Education Section */
+@media (max-width: 768px) {
+    .school {
+        width: 100%;
+    }
+}
