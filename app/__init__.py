@@ -33,7 +33,18 @@ def index():
 
 @app.route('/hobbies')
 def hobbies():
-    return render_template('hobbies.html', title="Hobbies", url=os.getenv("URL"), menu=active_menu(nav_menu, '/hobbies'))
+    hobbies = {
+        "Creative Pursuits": [
+            {"name": "Calligraphy", "description": "Practicing beautiful handwriting and letter design.", "image": "./static/img/57810812c56f8f67b043e6c95a802408.jpg"},
+            {"name": "Poetry", "description": "Crafting verses and exploring literary expressions.", "image": "./static/img/images.jpeg"},
+            {"name": "Painting", "description": "Experimenting with colors and techniques on canvas.", "image": "./static/img/painting.jpeg"}
+        ],
+        "Active and Culinary": [
+            {"name": "Basketball", "description": "Playing games and staying active on the court.", "image": "./static/img/MBB-WBB_BallHoop.jpeg"},
+            {"name": "Cooking/Baking", "description": "Trying out new recipes and baking delicious treats.", "image": "./static/img/cooking.jpg"}
+        ],
+    }
+    return render_template('hobbies.html', hobbies=hobbies, menu=active_menu(nav_menu, '/hobbies'))
 
 
 @app.route('/experience')

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{%  block header %}
+{% block header %}
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -36,7 +36,7 @@
             <img src="./static/img/logo.jpg">
         </div>
         <h1>Adam G. Emerson</h1>
-         <ul class="menu">
+        <ul class="menu">
             {% for item in menu %}
                 {% if item.active %}
                     <li class="menu-item active"><a href={{ item.url }}>{{ item.name }}</a></li>
@@ -47,7 +47,24 @@
         </ul>
     </div>
     <div class="page-content">
-        {% block content %}Home{% endblock %}
+        {% block content %}
+        <section class="about-me">
+            <h2>About Me</h2>
+            <p>My name is Ali Nawab, and I am a software engineer with a passion for technology and continuous learning. I am currently pursuing a Bachelor of Science in Computer Science at the University of Texas at Dallas, with an expected graduation date of May 2024. Additionally, I have completed a Computer Science Bootcamp at the University of California at Irvine, graduating in September 2023.</p>
+            <p>Throughout my academic journey, I have undertaken various relevant coursework such as Introduction to Computer Science, Programming Fundamentals, Discrete Math, Calculus I & II, Linear Algebra, and Codepath TIP 102 (Data Structures and Algorithms). My education has provided me with a strong foundation in both theoretical and practical aspects of computer science.</p>
+            <h3>Projects</h3>
+            <ul>
+                <li><strong>StudyBuddy</strong> - Lead Fullstack Engineer</li>
+                <li><strong>Weather App</strong> - Sole Contributor</li>
+                <li><strong>TechBlog</strong> - Sole Contributor</li>
+            </ul>
+            <h3>Skills</h3>
+            <p>Programming Languages: Java, Python, C#, C++, JavaScript, HTML, CSS, Linux, Kotlin, Swift</p>
+            <p>Frameworks: AWS, Express, Node.js, React.js, Next.js, React Native, MongoDB, MySQL, NoSQL, jQuery, Redux.js</p>
+            <h3>Activities</h3>
+            <p>I have started local programming classes for high school students, teaching more than 25 students about software engineering and artificial intelligence. Additionally, I am a member and lead of the Google Developer Student Club at UTD.</p>
+        </section>
+        {% endblock %}
     </div>
 </body>
 </html>
