@@ -91,4 +91,28 @@ def experience():
 
 @app.route('/education')
 def education():
-    return render_template('education.html', title="Education", url=os.getenv("URL"), menu=active_menu(nav_menu, '/education'))
+    education = [
+        {
+            "degree": "Bachelor of Science, Computer Science",
+            "institution": "University of Texas at Dallas",
+            "location": "Irving, Texas",
+            "dates": "Graduation May 2024",
+            "description": "Relevant Coursework: Introduction to Computer Science, Programming Fundamentals l, Discrete Math, Calculus l & ll, Linear Algebra, Codepath TIP 102 (Data Structures and Algorithms)"
+        },
+        {
+            "degree": "Bootcamp, Computer Science",
+            "institution": "University of California at Irvine",
+            "location": "Remote",
+            "dates": "Graduated September 2023",
+            "description": ""
+        },
+        {
+            "degree": "Intermiadiate Technical Interview Course",
+            "institution": "Codeapath",
+            "location": "Remote",
+            "dates": "Expected September 2024",
+            "description": "Deep dive into Data Structures, Algorithms, and System Design. Learning to solve technical interview questions with clarity."
+        }
+    ]
+    return render_template('education.html', education=education, menu=active_menu(nav_menu, '/education'))
+
