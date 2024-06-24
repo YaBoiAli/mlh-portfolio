@@ -27,8 +27,9 @@ def active_menu(menu, url):
 
 @app.route('/')
 def index():
+    google_api_key = os.getenv('google_api_key')
     print(active_menu(nav_menu, '/'))
-    return render_template('index.html', title="MLH Fellow", url=os.getenv("URL"), menu=active_menu(nav_menu, '/'))
+    return render_template('index.html', title="MLH Fellow", url=os.getenv("URL"), menu=active_menu(nav_menu, '/'), google_api_key=google_api_key)
 
 
 @app.route('/hobbies')

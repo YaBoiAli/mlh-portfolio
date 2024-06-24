@@ -1,3 +1,4 @@
+
 p, h1, h2, h3, h4, h5, h6, button {
     font-family: "Roboto", serif;
 }
@@ -143,7 +144,7 @@ body {
     padding: 20px;
     margin: 20px auto;
     width: 80%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
 
@@ -172,4 +173,24 @@ body {
 .about-me ul li {
     list-style: disc;
     margin-left: 20px;
+}
+
+.map-container {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.map-container h2 {
+    margin-top: 20px;
+    color: #1d539f;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+    border-radius: 8px;
 }
