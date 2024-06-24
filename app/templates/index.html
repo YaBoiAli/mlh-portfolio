@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 {% block header %}
 <head>
     <!-- Required meta tags -->
@@ -12,7 +11,7 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap"
         rel="stylesheet">
 
     <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
@@ -64,7 +63,53 @@
             <h3>Activities</h3>
             <p>I have started local programming classes for high school students, teaching more than 25 students about software engineering and artificial intelligence. Additionally, I am a member and lead of the Google Developer Student Club at UTD.</p>
         </section>
+        
+        <!-- Map Section -->
+        <section class="map-container">
+            <h2>Places I've Visited</h2>
+            <div id="map" class="map"></div>
+        </section>
+        
         {% endblock %}
     </div>
+
+    <script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 0, lng: 0}, 
+            zoom: 2 
+        });
+
+        // Add markers for the places you have visited
+        var places = [
+            {lat: 32.7767, lng: -96.7970, name: "Dallas, TX"},
+            {lat: 33.6846, lng: -117.8265, name: "Irvine, CA"},
+            {lat: 37.7749, lng: -122.4194, name: "San Francisco, CA"},
+            {lat: 24.7136, lng: 46.6753, name: "Saudi Arabia"},
+            {lat: 25.2048, lng: 55.2708, name: "Dubai, UAE"},
+        ];
+
+        places.forEach(function(place) {
+            var marker = new google.maps.Marker({
+                position: {lat: place.lat, lng: place.lng},
+                map: map,
+                title: place.name
+            });
+
+            var infowindow = new google.maps.InfoWindow({
+                content: place.name
+            });
+
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
+        });
+    }
+
+    window.onload = function() {
+        initMap();
+    }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&callback=initMap" async defer></script>
 </body>
 </html>
