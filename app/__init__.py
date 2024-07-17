@@ -1,11 +1,34 @@
 import os
 from flask import Flask, render_template, request
 from dotenv import load_dotenv
+from peewee import*
+import datetime
+from playhouse.shortcuts import model_to_dict
 
 load_dotenv()
 app = Flask(__name__)
 
+mydb=MySQLDatabase(
+    os.getenv("MYSQL_DATABASE"),
+    host=os.getenv('MYSQL_HOST'),
+    user=os.getenv('MYSQL_USER'),
+    password=os.getenv('MYSQL_PASSWORD'),
+    port=3306
+)
 
+print(mydb)
+
+class TimelinePost(Model):
+    name = CharField()
+    email = CharField()
+    content = TextField()
+    created_at = DateTimeField(default=datetime.datetime.now)
+
+    class Meta:
+        database = mydb
+
+mydb.connect()
+mydb.create_tables([TimelinePost])
 
 # Links declared for dynamic rendering in template
 nav_menu = [
@@ -118,3 +141,34 @@ def education():
     ]
     return render_template('education.html', education=education, menu=active_menu(nav_menu, '/education'))
 
+@app.route('/api/timeline_post', methods=['POST'])
+def post_time_line_post():
+    name = request.form['name']
+    email = request.form['email']
+    content = request.form['content']
+    timeline_post = TimelinePost.create(name=name, email=email, content=content)
+
+    return model_to_dict(timeline_post)
+
+@app.route('/api/timeline_post', methods=['GET'])
+def get_time_line_post():
+    return{
+        'timeline_posts': [
+            model_to_dict(p)
+            for p in TimelinePost.select().order_by(TimelinePost.created_at.desc())
+        ]
+    }
+
+@app.route('/api/timeline_post/<int:post_id>', methods=['DELETE'])
+def delete_time_line_post(post_id):
+    try:
+        timeline_post = TimelinePost.get(TimelinePost.id == post_id)
+        timeline_post.delete_instance()
+        return 'Successfully Deleted', 204 
+    except TimelinePost.DoesNotExist:
+        return {'error': 'Timeline post not found'}, 404  # Return not found status code if the post does not exist
+
+@app.route('/timeline')
+def timeline():
+    timeline_posts = TimelinePost.select().order_by(TimelinePost.created_at.desc())
+    return render_template('timeline.html', title='Timeline', timeline_posts=timeline_posts)
