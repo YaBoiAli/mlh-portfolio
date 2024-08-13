@@ -1,114 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-{% block header %}
-<head>
+  {% block header %}
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta property="og:title" content="Personal Portfolio">
-    <meta property="og:description" content="My Personal Portfolio">
-    <meta property="og:url" content="{{ url }}">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta property="og:title" content="Personal Portfolio" />
+    <meta property="og:description" content="My Personal Portfolio" />
+    <meta property="og:url" content="{{ url }}" />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap"
+      rel="stylesheet"
+    />
 
-    <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
-    <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
+    <link lang="sass" rel="stylesheet" href="./static/styles/main.css" />
+    <link rel="icon" href="./static/img/favicon.ico" type="image/x-icon" />
     <title>{{ title }}</title>
-</head>
-{% endblock %}
-<body>
+  </head>
+  {% endblock %}
+  <body>
     <header class="nav-bar">
-        <div class="nav-content">
-            <a href="/">
-                <div class="nav-logo">
-                    <img src="./static/img/logo.svg" />
-                </div>
-            </a>
-        </div>
+      <div class="nav-content">
+        <a href="/">
+          <div class="nav-logo">
+            <img src="./static/img/logo.svg" />
+          </div>
+        </a>
+      </div>
     </header>
     <div class="profile">
-        <div id="profile-picture" class="profile-picture">
-            <img src="./static/img/logo.jpg">
-        </div>
-        <h1>Ali Nawab</h1>
-        <ul class="menu">
-            {% for item in menu %}
-                {% if item.active %}
-                    <li class="menu-item active"><a href={{ item.url }}>{{ item.name }}</a></li>
-                {% else %}
-                    <li class="menu-item"><a href={{ item.url }}>{{ item.name }}</a></li>
-                {% endif %}
-            {% endfor %}
-        </ul>
+      <div id="profile-picture" class="profile-picture">
+        <img src="./static/img/logo.jpg" />
+      </div>
+      <h1>Ali Nawab</h1>
+      <ul class="menu">
+        {% for item in menu %} {% if item.active %}
+        <li class="menu-item active">
+          <a href="{{" item.url }}>{{ item.name }}</a>
+        </li>
+        {% else %}
+        <li class="menu-item"><a href="{{" item.url }}>{{ item.name }}</a></li>
+        {% endif %} {% endfor %}
+      </ul>
     </div>
     <div class="page-content">
-        {% block content %}
-        <section class="about-me">
-            <h2>About Me</h2>
-            <p>My name is Ali Nawab, and I am a software engineer with a passion for technology and continuous learning. I am currently pursuing a Bachelor of Science in Computer Science at the University of Texas at Dallas, with an expected graduation date of May 2024. Additionally, I have completed a Computer Science Bootcamp at the University of California at Irvine, graduating in September 2023.</p>
-            <p>Throughout my academic journey, I have undertaken various relevant coursework such as Introduction to Computer Science, Programming Fundamentals, Discrete Math, Calculus I & II, Linear Algebra, and Codepath TIP 102 (Data Structures and Algorithms). My education has provided me with a strong foundation in both theoretical and practical aspects of computer science.</p>
-            <h3>Projects</h3>
-            <ul>
-                <li><strong>StudyBuddy</strong> - Lead Fullstack Engineer</li>
-                <li><strong>Weather App</strong> - Sole Contributor</li>
-                <li><strong>TechBlog</strong> - Sole Contributor</li>
-            </ul>
-            <h3>Skills</h3>
-            <p>Programming Languages: Java, Python, C#, C++, JavaScript, HTML, CSS, Linux, Kotlin, Swift</p>
-            <p>Frameworks: AWS, Express, Node.js, React.js, Next.js, React Native, MongoDB, MySQL, NoSQL, jQuery, Redux.js</p>
-            <h3>Activities</h3>
-            <p>I have started local programming classes for high school students, teaching more than 25 students about software engineering and artificial intelligence. Additionally, I am a member and lead of the Google Developer Student Club at UTD.</p>
-        </section>
-        
-        <!-- Map Section -->
-        <section class="map-container">
-            <h2>Places I've Visited</h2>
-            <div id="map" class="map"></div>
-        </section>
-        
-        {% endblock %}
+      {% block content %}
+      <section class="about-me">
+        <h2>About Me</h2>
+        <p>
+          My name is Ali Nawab, and I am a software engineer with a passion for
+          technology and continuous learning. I am currently pursuing a Bachelor
+          of Science in Computer Science at the University of Texas at Dallas,
+          with an expected graduation date of May 2024. Additionally, I have
+          completed a Computer Science Bootcamp at the University of California
+          at Irvine, graduating in September 2023.
+        </p>
+        <p>
+          Throughout my academic journey, I have undertaken various relevant
+          coursework such as Introduction to Computer Science, Programming
+          Fundamentals, Discrete Math, Calculus I & II, Linear Algebra, and
+          Codepath TIP 102 (Data Structures and Algorithms). My education has
+          provided me with a strong foundation in both theoretical and practical
+          aspects of computer science.
+        </p>
+        <h3>Projects</h3>
+        <ul>
+          <li><strong>StudyBuddy</strong> - Lead Fullstack Engineer</li>
+          <li><strong>Weather App</strong> - Sole Contributor</li>
+          <li><strong>TechBlog</strong> - Sole Contributor</li>
+        </ul>
+        <h3>Skills</h3>
+        <p>
+          Programming Languages: Java, Python, C#, C++, JavaScript, HTML, CSS,
+          Linux, Kotlin, Swift
+        </p>
+        <p>
+          Frameworks: AWS, Express, Node.js, React.js, Next.js, React Native,
+          MongoDB, MySQL, NoSQL, jQuery, Redux.js
+        </p>
+        <h3>Activities</h3>
+        <p>
+          I have started local programming classes for high school students,
+          teaching more than 25 students about software engineering and
+          artificial intelligence. Additionally, I am a member and lead of the
+          Google Developer Student Club at UTD.
+        </p>
+      </section>
+
+      <!-- Map Section -->
+      <section class="map-container">
+        <h2>Places I've Visited</h2>
+        <div id="map" class="map"></div>
+      </section>
+
+      {% endblock %}
     </div>
 
     <script>
-    function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 0, lng: 0}, 
-            zoom: 2 
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 0, lng: 0 },
+          zoom: 2,
         });
 
         // Add markers for the places you have visited
         var places = [
-            {lat: 32.7767, lng: -96.7970, name: "Dallas, TX"},
-            {lat: 33.6846, lng: -117.8265, name: "Irvine, CA"},
-            {lat: 37.7749, lng: -122.4194, name: "San Francisco, CA"},
-            {lat: 24.7136, lng: 46.6753, name: "Saudi Arabia"},
-            {lat: 25.2048, lng: 55.2708, name: "Dubai, UAE"},
+          { lat: 32.7767, lng: -96.797, name: "Dallas, TX" },
+          { lat: 33.6846, lng: -117.8265, name: "Irvine, CA" },
+          { lat: 37.7749, lng: -122.4194, name: "San Francisco, CA" },
+          { lat: 24.7136, lng: 46.6753, name: "Saudi Arabia" },
+          { lat: 25.2048, lng: 55.2708, name: "Dubai, UAE" },
         ];
 
-        places.forEach(function(place) {
-            var marker = new google.maps.Marker({
-                position: {lat: place.lat, lng: place.lng},
-                map: map,
-                title: place.name
-            });
+        places.forEach(function (place) {
+          var marker = new google.maps.Marker({
+            position: { lat: place.lat, lng: place.lng },
+            map: map,
+            title: place.name,
+          });
 
-            var infowindow = new google.maps.InfoWindow({
-                content: place.name
-            });
+          var infowindow = new google.maps.InfoWindow({
+            content: place.name,
+          });
 
-            marker.addListener('click', function() {
-                infowindow.open(map, marker);
-            });
+          marker.addListener("click", function () {
+            infowindow.open(map, marker);
+          });
         });
-    }
+      }
 
-    window.onload = function() {
+      window.onload = function () {
         initMap();
-    }
+      };
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&callback=initMap" async defer></script>
-</body>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&callback=initMap"
+      async
+      defer
+    ></script>
+  </body>
 </html>
