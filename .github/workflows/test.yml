@@ -1,3 +1,4 @@
+workflow:
 name: Run Tests
 on:
   push:
@@ -21,8 +22,11 @@ jobs:
         with:
           python-version: '3.12.4'
           
-      - name: Setup Python Virtual Enviroment
+      - name: Setup Python Virtual Environment
         run: python -m venv python3-virtualenv
+        
+      - name: Make run_test.sh Executable
+        run: chmod +x ./run_test.sh
         
       - name: Run Tests
         run: ./run_test.sh
