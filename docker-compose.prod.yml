@@ -1,4 +1,3 @@
-version: "3"
 services:
   myportfolio:
     container_name: myportfolio
@@ -41,3 +40,4 @@ services:
 
 volumes:
   mydatabase:
+  nginx_secrets: 
