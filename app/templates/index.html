@@ -39,14 +39,16 @@
       </div>
       <h1>Ali Nawab</h1>
       <ul class="menu">
-        {% for item in menu %} {% if item.active %}
-        <li class="menu-item active">
-          <a href="{{" item.url }}>{{ item.name }}</a>
-        </li>
-        {% else %}
-        <li class="menu-item"><a href="{{" item.url }}>{{ item.name }}</a></li>
-        {% endif %} {% endfor %}
-      </ul>
+        {% for item in menu %}
+          {% if item.active %}
+            <li class="menu-item active">
+              <a href="{{ item.url }}">{{ item.name }}</a>
+            </li>
+          {% else %}
+            <li class="menu-item"><a href="{{ item.url }}">{{ item.name }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>      
     </div>
     <div class="page-content">
       {% block content %}
