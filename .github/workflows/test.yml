@@ -14,10 +14,10 @@ jobs:
       TESTING: true
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3  # Updated to use the latest version
+        uses: actions/checkout@v3
 
       - name: Set up Python 3.9
-        uses: actions/setup-python@v4  # Updated to use the latest version
+        uses: actions/setup-python@v4
         with:
           python-version: 3.9
 
@@ -29,6 +29,9 @@ jobs:
 
       - name: Make run_test.sh Executable
         run: chmod +x ./run_test.sh
+
+      - name: Verify run_test.sh Executable (Optional Step)
+        run: ls -l ./run_test.sh
 
       - name: Run tests
         run: ./run_test.sh
