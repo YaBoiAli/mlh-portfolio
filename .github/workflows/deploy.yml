@@ -29,4 +29,4 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Print project root directory
-        run: ssh ${{ secrets.PROJECT_ROOT@secrets.SSH_IP }} 'cd ${{ secrets.PROJECT_ROOT }} && pwd'
+        run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && pwd'
